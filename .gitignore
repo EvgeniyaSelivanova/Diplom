@@ -1,7 +1,7 @@
 HELP.md
 .gradle
 build/
-gate-simulator/node_modules
+gate-simulator/node_modules/
 allure-results/
 
 ### STS ###
