@@ -1,11 +1,10 @@
 package ru.netology.data;
 
-import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.support.FindBy;
 
+import static com.codeborne.selenide.Condition.cssValue;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class DataPart {
@@ -32,9 +31,5 @@ public class DataPart {
         cardCVV.setValue(data.getCVV());
         buttonContinue.click();
         return new DataPart();
-
     }
-
-
-
 }

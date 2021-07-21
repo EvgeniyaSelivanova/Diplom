@@ -10,9 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.DataHelper;
 import ru.netology.data.DataPart;
-
-import java.time.Duration;
-
+import ru.netology.functionalForm.CheckForm;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -74,21 +72,9 @@ public class TestTravelOfTheDay {
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getInvalidCardDataTextAndNumber();
         DataPart.insertData(cardData);
-        DataPart.cardNumberSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardMonthSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardYearSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardNameSubBox.shouldHave(exactText("Поле обязательно для заполнения")).shouldBe(visible);
-        DataPart.cardCVVSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.buttonContinue.shouldHave(exactText("Продолжить")).shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__box")
-                .shouldHave(cssValue("border-bottom-color", "rgba(255, 92, 92, 0.85)"));
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
-        assertEquals("", DataPart.cardNumber.getValue());
-        assertEquals("", DataPart.cardMonth.getValue());
-        assertEquals("", DataPart.cardYear.getValue());
-        assertEquals("", DataPart.cardName.getValue());
-        assertEquals("", DataPart.cardCVV.getValue());
+        CheckForm.InvalidData();
+        CheckForm.Color();
+        CheckForm.AssertEmptyData();
     }
 
     @Test
@@ -97,21 +83,9 @@ public class TestTravelOfTheDay {
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getInvalidCardDataTextAndNumber();
         DataPart.insertData(cardData);
-        DataPart.cardNumberSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardMonthSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardYearSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardNameSubBox.shouldHave(exactText("Поле обязательно для заполнения")).shouldBe(visible);
-        DataPart.cardCVVSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.buttonContinue.shouldHave(exactText("Продолжить")).shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__box")
-                .shouldHave(cssValue("border-bottom-color", "rgba(255, 92, 92, 0.85)"));
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
-        assertEquals("", DataPart.cardNumber.getValue());
-        assertEquals("", DataPart.cardMonth.getValue());
-        assertEquals("", DataPart.cardYear.getValue());
-        assertEquals("", DataPart.cardName.getValue());
-        assertEquals("", DataPart.cardCVV.getValue());
+        CheckForm.InvalidData();
+        CheckForm.Color();
+        CheckForm.AssertEmptyData();
     }
 
     @Test
@@ -120,21 +94,9 @@ public class TestTravelOfTheDay {
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getInvalidCardDataEmpty();
         DataPart.insertData(cardData);
-        DataPart.cardNumberSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardMonthSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardYearSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardNameSubBox.shouldHave(exactText("Поле обязательно для заполнения")).shouldBe(visible);
-        DataPart.cardCVVSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.buttonContinue.shouldHave(exactText("Продолжить")).shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__box")
-                .shouldHave(cssValue("border-bottom-color", "rgba(255, 92, 92, 0.85)"));
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
-        assertEquals("", DataPart.cardNumber.getValue());
-        assertEquals("", DataPart.cardMonth.getValue());
-        assertEquals("", DataPart.cardYear.getValue());
-        assertEquals("", DataPart.cardName.getValue());
-        assertEquals("", DataPart.cardCVV.getValue());
+        CheckForm.InvalidData();
+        CheckForm.Color();
+        CheckForm.AssertEmptyData();
     }
 
     @Test
@@ -143,21 +105,9 @@ public class TestTravelOfTheDay {
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getInvalidCardDataEmpty();
         DataPart.insertData(cardData);
-        DataPart.cardNumberSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardMonthSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardYearSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardNameSubBox.shouldHave(exactText("Поле обязательно для заполнения")).shouldBe(visible);
-        DataPart.cardCVVSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.buttonContinue.shouldHave(exactText("Продолжить")).shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__box")
-                .shouldHave(cssValue("border-bottom-color", "rgba(255, 92, 92, 0.85)"));
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
-        assertEquals("", DataPart.cardNumber.getValue());
-        assertEquals("", DataPart.cardMonth.getValue());
-        assertEquals("", DataPart.cardYear.getValue());
-        assertEquals("", DataPart.cardName.getValue());
-        assertEquals("", DataPart.cardCVV.getValue());
+        CheckForm.InvalidData();
+        CheckForm.Color();
+        CheckForm.AssertEmptyData();
     }
 
     @Test
@@ -173,10 +123,7 @@ public class TestTravelOfTheDay {
         SelenideElement cardCVVSubBox = form.$$(".input__inner .input__top").find(exactText("CVC/CVV")).shouldBe(visible);
         cardCVVSubBox.parent().$(".input__inner .input__sub").shouldHave(exactText("Неверный формат")).shouldBe(visible);
         DataPart.buttonContinue.shouldHave(exactText("Продолжить")).shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__box")
-                .shouldHave(cssValue("border-bottom-color", "rgba(255, 92, 92, 0.85)"));
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
+        CheckForm.Color();
         assertEquals("", DataPart.cardYear.getValue());
         assertEquals("", DataPart.cardName.getValue());
         assertEquals("", DataPart.cardCVV.getValue());
@@ -195,10 +142,7 @@ public class TestTravelOfTheDay {
         SelenideElement cardCVVSubBox = form.$$(".input__inner .input__top").find(exactText("CVC/CVV")).shouldBe(visible);
         cardCVVSubBox.parent().$(".input__inner .input__sub").shouldHave(exactText("Неверный формат")).shouldBe(visible);
         DataPart.buttonContinue.shouldHave(exactText("Продолжить")).shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__box")
-                .shouldHave(cssValue("border-bottom-color", "rgba(255, 92, 92, 0.85)"));
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
+        CheckForm.Color();
         assertEquals("", DataPart.cardYear.getValue());
         assertEquals("", DataPart.cardName.getValue());
         assertEquals("", DataPart.cardCVV.getValue());
@@ -264,21 +208,9 @@ public class TestTravelOfTheDay {
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getInValidCardDataSpecialSymbols();
         DataPart.insertData(cardData);
-        DataPart.cardNumberSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardMonthSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardYearSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardNameSubBox.shouldHave(exactText("Поле обязательно для заполнения")).shouldBe(visible);
-        DataPart.cardCVVSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.buttonContinue.shouldHave(exactText("Продолжить")).shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__box")
-                .shouldHave(cssValue("border-bottom-color", "rgba(255, 92, 92, 0.85)"));
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
-        assertEquals("", DataPart.cardNumber.getValue());
-        assertEquals("", DataPart.cardMonth.getValue());
-        assertEquals("", DataPart.cardYear.getValue());
-        assertEquals("", DataPart.cardName.getValue());
-        assertEquals("", DataPart.cardCVV.getValue());
+        CheckForm.InvalidData();
+        CheckForm.Color();
+        CheckForm.AssertEmptyData();
     }
 
     @Test
@@ -287,21 +219,9 @@ public class TestTravelOfTheDay {
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getInValidCardDataSpecialSymbols();
         DataPart.insertData(cardData);
-        DataPart.cardNumberSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardMonthSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardYearSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardNameSubBox.shouldHave(exactText("Поле обязательно для заполнения")).shouldBe(visible);
-        DataPart.cardCVVSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.buttonContinue.shouldHave(exactText("Продолжить")).shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__box")
-                .shouldHave(cssValue("border-bottom-color", "rgba(255, 92, 92, 0.85)"));
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
-        assertEquals("", DataPart.cardNumber.getValue());
-        assertEquals("", DataPart.cardMonth.getValue());
-        assertEquals("", DataPart.cardYear.getValue());
-        assertEquals("", DataPart.cardName.getValue());
-        assertEquals("", DataPart.cardCVV.getValue());
+        CheckForm.InvalidData();
+        CheckForm.Color();
+        CheckForm.AssertEmptyData();
     }
 
     @Test
@@ -310,21 +230,9 @@ public class TestTravelOfTheDay {
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getInValidCardDataMaxLength();
         DataPart.insertData(cardData);
-        DataPart.cardNumberSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardMonthSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardYearSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardNameSubBox.shouldHave(exactText("Значение поля не может быть длиннее 64 символов")).shouldBe(visible);
-        DataPart.cardCVVSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.buttonContinue.shouldHave(exactText("Продолжить")).shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__box")
-                .shouldHave(cssValue("border-bottom-color", "rgba(255, 92, 92, 0.85)"));
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
-        assertEquals("", DataPart.cardNumber.getValue());
-        assertEquals("", DataPart.cardMonth.getValue());
-        assertEquals("", DataPart.cardYear.getValue());
-        assertEquals("", DataPart.cardName.getValue());
-        assertEquals("", DataPart.cardCVV.getValue());
+        CheckForm.InvalidLongData();
+        CheckForm.Color();
+        CheckForm.AssertEmptyData();
     }
 
     @Test
@@ -333,21 +241,9 @@ public class TestTravelOfTheDay {
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getInValidCardDataMaxLength();
         DataPart.insertData(cardData);
-        DataPart.cardNumberSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardMonthSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardYearSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.cardNameSubBox.shouldHave(exactText("Значение поля не может быть длиннее 64 символов")).shouldBe(visible);
-        DataPart.cardCVVSubBox.shouldHave(exactText("Неверный формат")).shouldBe(visible);
-        DataPart.buttonContinue.shouldHave(exactText("Продолжить")).shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__box")
-                .shouldHave(cssValue("border-bottom-color", "rgba(255, 92, 92, 0.85)"));
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
-        assertEquals("", DataPart.cardNumber.getValue());
-        assertEquals("", DataPart.cardMonth.getValue());
-        assertEquals("", DataPart.cardYear.getValue());
-        assertEquals("", DataPart.cardName.getValue());
-        assertEquals("", DataPart.cardCVV.getValue());
+        CheckForm.InvalidLongData();
+        CheckForm.Color();
+        CheckForm.AssertEmptyData();
     }
 
     @Test
@@ -358,10 +254,7 @@ public class TestTravelOfTheDay {
         val cardData = DataHelper.getValidCardData();
         DataPart.insertData(cardData);
         DataPart.buttonContinue.shouldHave(exactText("Отправляем запрос в Банк...")).shouldBe(visible);
-        form.$(".notification__title").shouldHave(exactText("Успешно"))
-                .shouldBe(visible, Duration.ofSeconds(20));
-        form.$(".notification__content").shouldHave(exactText("Операция одобрена Банком."))
-                .shouldBe(visible, Duration.ofSeconds(20));
+        CheckForm.NotificationSuccess();
         assertEquals(firstCountOrderEntity + 1, DataHelper.getOrderEntity());
         assertEquals("APPROVED", DataHelper.getStatusAddedPaymentEntity());
     }
@@ -374,10 +267,7 @@ public class TestTravelOfTheDay {
         val cardData = DataHelper.getValidCardData();
         DataPart.insertData(cardData);
         DataPart.buttonContinue.shouldHave(exactText("Отправляем запрос в Банк...")).shouldBe(visible);
-        form.$(".notification__title").shouldHave(exactText("Успешно"))
-                .shouldBe(visible, Duration.ofSeconds(20));
-        form.$(".notification__content").shouldHave(exactText("Операция одобрена Банком."))
-                .shouldBe(visible, Duration.ofSeconds(20));
+        CheckForm.NotificationSuccess();
         assertEquals(firstCountOrderEntity + 1, DataHelper.getOrderEntity());
         assertEquals("APPROVED", DataHelper.getStatusAddedCreditRequestEntity());
     }
@@ -390,10 +280,7 @@ public class TestTravelOfTheDay {
         val cardData = DataHelper.getValidCardDataDeclined();
         DataPart.insertData(cardData);
         DataPart.buttonContinue.shouldHave(exactText("Отправляем запрос в Банк...")).shouldBe(visible);
-        form.$(".notification__title").shouldHave(exactText("Успешно"))
-                .shouldBe(visible, Duration.ofSeconds(20));
-        form.$(".notification__content").shouldHave(exactText("Операция одобрена Банком."))
-                .shouldBe(visible, Duration.ofSeconds(20));
+        CheckForm.NotificationSuccess();
         assertEquals(firstCountOrderEntity + 1, DataHelper.getOrderEntity());
         assertEquals("DECLINED", DataHelper.getStatusAddedPaymentEntity());
     }
@@ -406,10 +293,7 @@ public class TestTravelOfTheDay {
         val cardData = DataHelper.getValidCardDataDeclined();
         DataPart.insertData(cardData);
         DataPart.buttonContinue.shouldHave(exactText("Отправляем запрос в Банк...")).shouldBe(visible);
-        form.$(".notification__title").shouldHave(exactText("Успешно"))
-                .shouldBe(visible, Duration.ofSeconds(20));
-        form.$(".notification__content").shouldHave(exactText("Операция одобрена Банком."))
-                .shouldBe(visible, Duration.ofSeconds(20));
+        CheckForm.NotificationSuccess();
         assertEquals(firstCountOrderEntity + 1, DataHelper.getOrderEntity());
         assertEquals("DECLINED", DataHelper.getStatusAddedCreditRequestEntity());
     }
@@ -422,10 +306,7 @@ public class TestTravelOfTheDay {
         val cardData = DataHelper.getValidCardDataNotFromList();
         DataPart.insertData(cardData);
         DataPart.buttonContinue.shouldHave(exactText("Отправляем запрос в Банк...")).shouldBe(visible);
-        form.$(".notification__title").shouldHave(exactText("Ошибка"))
-                .shouldBe(visible, Duration.ofSeconds(15));
-        form.$(".notification__content").shouldHave(exactText("Ошибка! Банк отказал в проведении операции."))
-                .shouldBe(visible, Duration.ofSeconds(15));
+        CheckForm.NotificationUnSuccess();
         assertEquals(firstCountOrderEntity, DataHelper.getOrderEntity());
     }
 
@@ -437,10 +318,7 @@ public class TestTravelOfTheDay {
         val cardData = DataHelper.getValidCardDataNotFromList();
         DataPart.insertData(cardData);
         DataPart.buttonContinue.shouldHave(exactText("Отправляем запрос в Банк...")).shouldBe(visible);
-        form.$(".notification__title").shouldHave(exactText("Ошибка"))
-                .shouldBe(visible, Duration.ofSeconds(15));
-        form.$(".notification__content").shouldHave(exactText("Ошибка! Банк отказал в проведении операции."))
-                .shouldBe(visible, Duration.ofSeconds(15));
+        CheckForm.NotificationUnSuccess();
         assertEquals(firstCountOrderEntity, DataHelper.getOrderEntity());
     }
 
@@ -452,8 +330,7 @@ public class TestTravelOfTheDay {
         DataPart.insertData(cardData);
         $(".input__inner .input__sub").shouldHave(exactText("Неверно указан срок действия карты"))
                 .shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
+        CheckForm.Color();
     }
 
     @Test
@@ -464,8 +341,7 @@ public class TestTravelOfTheDay {
         DataPart.insertData(cardData);
         $(".input__inner .input__sub").shouldHave(exactText("Неверно указан срок действия карты"))
                 .shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
+        CheckForm.Color();
     }
 
     @Test
@@ -476,8 +352,7 @@ public class TestTravelOfTheDay {
         DataPart.insertData(cardData);
         $(".input__inner .input__sub").shouldHave(exactText("Истёк срок действия карты"))
                 .shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
+        CheckForm.Color();
     }
 
     @Test
@@ -488,8 +363,7 @@ public class TestTravelOfTheDay {
         DataPart.insertData(cardData);
         $(".input__inner .input__sub").shouldHave(exactText("Истёк срок действия карты"))
                 .shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
+        CheckForm.Color();
     }
 
     @Test
@@ -500,8 +374,7 @@ public class TestTravelOfTheDay {
         DataPart.insertData(cardData);
         $(".input__inner .input__sub").shouldHave(exactText("Неверно указан срок действия карты"))
                 .shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
+        CheckForm.Color();
     }
 
     @Test
@@ -512,8 +385,7 @@ public class TestTravelOfTheDay {
         DataPart.insertData(cardData);
         $(".input__inner .input__sub").shouldHave(exactText("Неверно указан срок действия карты"))
                 .shouldBe(visible);
-        $(".input_theme_alfa-on-white.input_invalid .input__sub")
-                .shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
+        CheckForm.Color();
     }
 
     @AfterAll
