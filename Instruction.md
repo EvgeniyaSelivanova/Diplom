@@ -13,10 +13,11 @@ _Должен быть установлен Docker_
 ![Step3](https://user-images.githubusercontent.com/75242936/126556593-2c25d5cf-cc67-4b4a-9500-82fc84dc8b1c.png)
 
 4. В открывшемся окне терминала вводим команду ```docker-compose up -d mysql``` для запуска контейнера MySQL или
-   ```docker-compose up -d postgres``` ля запуска контейнера Postgres и нажимаем Enter.
+   ```docker-compose up -d postgres``` для запуска контейнера Postgres и нажимаем Enter.
 
-Step4.1.png
-Step4.2.png
+![Step4 1](https://user-images.githubusercontent.com/75242936/127553213-ca0f8f92-dd72-4e11-94d3-c7dcbd705fb9.png)
+
+![Step4 2](https://user-images.githubusercontent.com/75242936/127553237-a627cf1c-0d8d-46ca-ba12-97ccb9accae2.png)
 
 5. Ожидаем запуск контейнеров MySQL или Postgres
 
