@@ -12,11 +12,13 @@ Step1.png
 
 Step3.png
 
-4. В открывшемся окне терминала вводим команду ```docker-compose up -d``` и нажимаем Enter.
+4. В открывшемся окне терминала вводим команду ```docker-compose up -d mysql``` для запуска контейнера MySQL или
+   ```docker-compose up -d postgres``` ля запуска контейнера Postgres и нажимаем Enter.
 
-Step4.png
+Step4.1.png
+Step4.2.png
 
-5. Ожидаем запуск контейнеров MySql и Postgres
+5. Ожидаем запуск контейнеров MySQL или Postgres
 
 6. Переходим в папку gate-simulator, введя в терминальном окне команду ```cd gate-simulator``` и нажимаем Enter.
 

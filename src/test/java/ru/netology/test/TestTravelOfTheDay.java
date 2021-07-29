@@ -11,11 +11,14 @@ import org.junit.jupiter.api.Test;
 import ru.netology.data.DataHelper;
 import ru.netology.data.DataPart;
 import ru.netology.functionalForm.CheckForm;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestTravelOfTheDay {
+    public SelenideElement form = $("[class='App_appContainer__3jRx1']");
+    public int firstCountOrderEntity = DataHelper.getOrderEntity();
 
     @BeforeAll
     static void setUpAll() {
@@ -32,9 +35,9 @@ public class TestTravelOfTheDay {
         open("http://localhost:8080");
     }
 
+
     @Test
     void checkingButtonBuy() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         $("[class='heading heading_size_m heading_theme_alfa-on-white']")
                 .shouldHave(exactText("Оплата по карте")).shouldBe(visible);
@@ -42,7 +45,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void checkingButtonBuyInCredit() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         $("[class='heading heading_size_m heading_theme_alfa-on-white']")
                 .shouldHave(exactText("Кредит по данным карты")).shouldBe(visible);
@@ -50,7 +52,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataButtonBuy() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getValidCardData();
         DataPart.insertData(cardData);
@@ -59,7 +60,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataButtonBuyInCredit() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getValidCardData();
         DataPart.insertData(cardData);
@@ -68,7 +68,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataTextAndNumberButtonBuy() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getInvalidCardDataTextAndNumber();
         DataPart.insertData(cardData);
@@ -79,7 +78,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataTextAndNumberButtonBuyInCredit() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getInvalidCardDataTextAndNumber();
         DataPart.insertData(cardData);
@@ -90,7 +88,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataEmptyButtonBuy() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getInvalidCardDataEmpty();
         DataPart.insertData(cardData);
@@ -101,7 +98,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataEmptyButtonBuyInCredit() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getInvalidCardDataEmpty();
         DataPart.insertData(cardData);
@@ -112,7 +108,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataPartialDataButtonBuy() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getInvalidCardDataPartialData();
         DataPart.insertData(cardData);
@@ -131,7 +126,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataPartialDataButtonBuyInCredit() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getInvalidCardDataPartialData();
         DataPart.insertData(cardData);
@@ -150,7 +144,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataBigNameButtonBuy() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getValidCardDataBigName();
         DataPart.insertData(cardData);
@@ -159,7 +152,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataBigNameButtonBuyInCredit() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getValidCardDataBigName();
         DataPart.insertData(cardData);
@@ -168,7 +160,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataSmallNameButtonBuy() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getValidCardDataSmallName();
         DataPart.insertData(cardData);
@@ -177,7 +168,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataSmallNameButtonBuyInCredit() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getValidCardDataSmallName();
         DataPart.insertData(cardData);
@@ -186,7 +176,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataHyphenNameButtonBuy() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getValidCardDataHyphenName();
         DataPart.insertData(cardData);
@@ -195,7 +184,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataHyphenNameButtonBuyInCredit() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getValidCardDataHyphenName();
         DataPart.insertData(cardData);
@@ -204,7 +192,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataSpecialSymbolsButtonBuy() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getInValidCardDataSpecialSymbols();
         DataPart.insertData(cardData);
@@ -215,7 +202,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataSpecialSymbolsButtonBuyInCredit() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getInValidCardDataSpecialSymbols();
         DataPart.insertData(cardData);
@@ -226,7 +212,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataMaxLengthButtonBuy() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getInValidCardDataMaxLength();
         DataPart.insertData(cardData);
@@ -237,7 +222,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataMaxLengthsButtonBuyInCredit() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getInValidCardDataMaxLength();
         DataPart.insertData(cardData);
@@ -248,8 +232,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataWithInformApprovedButtonBuy() {
-        int firstCountOrderEntity = DataHelper.getOrderEntity();
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getValidCardData();
         DataPart.insertData(cardData);
@@ -261,8 +243,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataWithInformApprovedButtonBuyInCredit() {
-        int firstCountOrderEntity = DataHelper.getOrderEntity();
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getValidCardData();
         DataPart.insertData(cardData);
@@ -274,8 +254,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataWithInformDeclinedButtonBuy() {
-        int firstCountOrderEntity = DataHelper.getOrderEntity();
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getValidCardDataDeclined();
         DataPart.insertData(cardData);
@@ -287,8 +265,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataWithInformDeclinedButtonBuyInCredit() {
-        int firstCountOrderEntity = DataHelper.getOrderEntity();
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getValidCardDataDeclined();
         DataPart.insertData(cardData);
@@ -300,8 +276,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataNotFromListButtonBuy() {
-        int firstCountOrderEntity = DataHelper.getOrderEntity();
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getValidCardDataNotFromList();
         DataPart.insertData(cardData);
@@ -312,8 +286,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertValidCardDataNotFromListButtonBuyInCredit() {
-        int firstCountOrderEntity = DataHelper.getOrderEntity();
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getValidCardDataNotFromList();
         DataPart.insertData(cardData);
@@ -324,7 +296,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataPreviousMonthButtonBuy() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getInValidCardDataPreviousMonth();
         DataPart.insertData(cardData);
@@ -335,7 +306,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataPreviousMonthButtonBuyInCredit() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getInValidCardDataPreviousMonth();
         DataPart.insertData(cardData);
@@ -346,7 +316,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataIncorrectYearButtonBuy() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getInValidCardDataIncorrectYear();
         DataPart.insertData(cardData);
@@ -357,7 +326,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataIncorrectYearButtonBuyInCredit() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getInValidCardDataIncorrectYear();
         DataPart.insertData(cardData);
@@ -368,7 +336,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataIncorrectMonthButtonBuy() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить")).click();
         val cardData = DataHelper.getInValidCardDataIncorrectMonth();
         DataPart.insertData(cardData);
@@ -379,7 +346,6 @@ public class TestTravelOfTheDay {
 
     @Test
     void insertInvalidCardDataIncorrectMonthButtonBuyInCredit() {
-        SelenideElement form = $("[class='App_appContainer__3jRx1']");
         form.$$("button").find(exactText("Купить в кредит")).click();
         val cardData = DataHelper.getInValidCardDataIncorrectMonth();
         DataPart.insertData(cardData);
