@@ -258,7 +258,7 @@ public class TestTravelOfTheDay {
         val cardData = DataHelper.getValidCardDataDeclined();
         DataPart.insertData(cardData);
         DataPart.buttonContinue.shouldHave(exactText("Отправляем запрос в Банк...")).shouldBe(visible);
-        CheckForm.NotificationSuccess();
+        CheckForm.NotificationUnSuccess();
         assertEquals(firstCountOrderEntity + 1, DataHelper.getOrderEntity());
         assertEquals("DECLINED", DataHelper.getStatusAddedPaymentEntity());
     }
@@ -269,7 +269,7 @@ public class TestTravelOfTheDay {
         val cardData = DataHelper.getValidCardDataDeclined();
         DataPart.insertData(cardData);
         DataPart.buttonContinue.shouldHave(exactText("Отправляем запрос в Банк...")).shouldBe(visible);
-        CheckForm.NotificationSuccess();
+        CheckForm.NotificationUnSuccess();
         assertEquals(firstCountOrderEntity + 1, DataHelper.getOrderEntity());
         assertEquals("DECLINED", DataHelper.getStatusAddedCreditRequestEntity());
     }
